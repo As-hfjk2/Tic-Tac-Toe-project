@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #b795eb, #fceeee);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    margin-bottom: 15px;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: #333;
+}
+
+.msg-contain {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#msg {
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-weight: 600;
+    color: #333;
+}
+
+.hide {
+    display: none;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game {
+    width: min(90vw, 320px);  
+    height: min(90vw, 320px);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+/* Each Box */
+.box {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 12px;
+    background-color: #ffffff;
+    font-size: clamp(2rem, 6vw, 3rem);
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.15s ease, background-color 0.3s;
+}
+
+.box:active {
+    transform: scale(0.9);
+}
+
+.box:hover {
+    background-color: #f2e9ff;
+}
+
+.reset, .new-game {
+    margin-top: 15px;
+    padding: 10px 18px;
+    font-size: clamp(0.8rem, 2.5vw, 1rem);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #6a5acd;
+    color: white;
+    transition: background-color 0.3s ease, transform 0.15s ease;
+}
+
+.reset:hover, .new-game:hover {
+    background-color: #5846c7;
+    transform: scale(1.05);
+}
+
+.draw {
+    background-color: #ffe4e1;
+    animation: shake 0.4s ease-in-out;
+}
+
+.win {
+    background-color: #c8ffd4;
+    animation: pop 0.4s ease-in-out;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    50% { transform: translateX(4px); }
+    75% { transform: translateX(-4px); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
